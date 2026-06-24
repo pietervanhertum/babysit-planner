@@ -28,13 +28,6 @@ body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,system-
 header{padding:38px 0 22px;border-bottom:1px solid var(--line);margin-bottom:8px}
 .eyebrow{font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:600}
 h1{font-family:Fraunces,serif;font-weight:900;font-size:clamp(38px,8vw,68px);line-height:.95;margin:.18em 0 .12em;letter-spacing:-.01em}
-.sub{color:var(--muted);font-size:16px;max-width:48ch}
-.sub b{color:var(--ink);font-weight:600}
-
-.legend{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0 6px}
-.chip{display:inline-flex;align-items:center;gap:8px;padding:7px 13px 7px 10px;border-radius:999px;background:var(--card);border:1px solid var(--line);font-size:14px;font-weight:600;box-shadow:var(--shadow)}
-.dot{width:14px;height:14px;border-radius:5px;flex:none}
-.chip small{font-weight:500;color:var(--muted)}
 
 .controls{display:flex;flex-wrap:wrap;gap:18px;align-items:flex-end;margin:20px 0 26px;justify-content:space-between}
 .ctrlgroup{display:flex;flex-direction:column;gap:7px}
@@ -127,8 +120,6 @@ footer{margin-top:40px;padding-top:20px;border-top:1px solid var(--line);color:v
 <header>
   <div class="eyebrow">Oppasplanning</div>
   <h1>Wie past<br>er op?</h1>
-  <p class="sub">Otto &amp; Rosie · <b>juli 2026</b>. Elke dag heeft drie momenten — ochtend, dag en avond. De <b>kleur</b> vertelt meteen wie aan de beurt is.</p>
-  <div class="legend" id="legend"></div>
 </header>
 
 <div class="controls">
@@ -177,14 +168,6 @@ const UPCOMING=(DATA.rows.find(r=>r.date>=TODAY)||{}).date||null;
 // task fields that belong to each persona (for "eigen info")
 const TASK_OWNER={lieze:['lieze','liezewerk'],pieter:['pieter'],renilde:['omieopie'],linda:['omaopa']};
 const TASK_LABEL={lieze:'Lieze',pieter:'Pieter',omaopa:'Oma/Opa',omieopie:'Omie/Opie',liezewerk:'Werk Lieze'};
-
-// legend
-const legend=document.getElementById('legend');
-Object.entries(PEOPLE).forEach(([k,p])=>{
-  const c=document.createElement('span');c.className='chip';
-  c.innerHTML=`<span class="dot" style="background:var(${p.var})"></span>${p.label}${p.who?` <small>${p.who}</small>`:''}`;
-  legend.appendChild(c);
-});
 
 // person filter
 const fbar=document.getElementById('filterbar');
