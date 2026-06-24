@@ -60,6 +60,8 @@ h1{font-family:Fraunces,serif;font-weight:900;font-size:clamp(38px,8vw,68px);lin
 .day.weekendday{background:linear-gradient(180deg,#fffdf4,#fdf8e8)}
 .day.dim{opacity:.3;filter:saturate(.5)}
 .day.hl{outline:2px solid var(--ink);outline-offset:0}
+.day.today{outline:2.5px solid var(--letop);outline-offset:0;box-shadow:0 0 0 5px rgba(229,72,77,.12),var(--shadow)}
+.tag-today{margin-left:auto;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#fff;background:var(--letop);padding:3px 10px;border-radius:999px}
 .day-h{display:flex;align-items:baseline;gap:10px;padding:14px 16px 10px}
 .dnum{font-family:Fraunces,serif;font-weight:900;font-size:30px;line-height:1}
 .dname{font-weight:700;font-size:15px}
@@ -94,6 +96,8 @@ thead th{position:sticky;top:0;background:#fff;text-align:left;font-size:11px;le
 tbody td{padding:0;border-bottom:1px solid var(--line);vertical-align:middle}
 tbody tr.we{background:#fdf8e8}
 tbody tr.dim{opacity:.32}
+tbody tr.today{box-shadow:inset 0 0 0 2.5px var(--letop)}
+tbody tr.today .tdate .tw{color:var(--letop);font-weight:700}
 .tdate{padding:11px 12px;white-space:nowrap;font-weight:600}
 .tdate .tn{font-family:Fraunces,serif;font-weight:900;font-size:18px;margin-right:6px}
 .tdate .tw{color:var(--muted);font-weight:500;font-size:12px;display:block}
@@ -156,17 +160,22 @@ const DATA = {"rows": [{"date": "2026-07-01", "day": "Woensdag", "dd": 1, "mm": 
 const PEOPLE = {
   lieze:   {label:'Lieze',           who:'mama',        var:'--lieze',   initial:'L'},
   pieter:  {label:'Pieter',          who:'papa',        var:'--pieter',  initial:'P'},
-  renilde: {label:'Renilde & Ronny', who:'oma & opa',   var:'--renilde', initial:'R'},
-  linda:   {label:'Linda & Dirk',    who:'omie & opie', var:'--linda',   initial:'L'},
+  renilde: {label:'Renilde & Ronny', who:'omie & opie', var:'--renilde', initial:'R'},
+  linda:   {label:'Linda & Dirk',    who:'oma & opa',   var:'--linda',   initial:'L'},
   kamp:    {label:'Kamp / activiteit',who:'',           var:'--kamp',    initial:'K'},
 };
 const WHEN={ochtend:'Ochtend',dag:'Dag',avond:'Avond'};
 const SLOTS=['ochtend','dag','avond'];
 const campMap={};DATA.camps.forEach(c=>campMap[c.date]=c.otto);
 let active='all', view='cards';
+// vandaag in lokale tijd als YYYY-MM-DD
+const _t=new Date();
+const TODAY=`${_t.getFullYear()}-${String(_t.getMonth()+1).padStart(2,'0')}-${String(_t.getDate()).padStart(2,'0')}`;
+// eerste dag die vandaag of later is (voor scroll als vandaag buiten juli valt)
+const UPCOMING=(DATA.rows.find(r=>r.date>=TODAY)||{}).date||null;
 
 // task fields that belong to each persona (for "eigen info")
-const TASK_OWNER={lieze:['lieze','liezewerk'],pieter:['pieter'],renilde:['omaopa'],linda:['omieopie']};
+const TASK_OWNER={lieze:['lieze','liezewerk'],pieter:['pieter'],renilde:['omieopie'],linda:['omaopa']};
 const TASK_LABEL={lieze:'Lieze',pieter:'Pieter',omaopa:'Oma/Opa',omieopie:'Omie/Opie',liezewerk:'Werk Lieze'};
 
 // legend
@@ -179,7 +188,7 @@ Object.entries(PEOPLE).forEach(([k,p])=>{
 
 // person filter
 const fbar=document.getElementById('filterbar');
-const filters=[['all','Iedereen',null],['lieze','Lieze','--lieze'],['pieter','Pieter','--pieter'],['renilde','Oma & Opa','--renilde'],['linda','Omie & Opie','--linda']];
+const filters=[['all','Iedereen',null],['lieze','Lieze','--lieze'],['pieter','Pieter','--pieter'],['linda','Oma & Opa','--linda'],['renilde','Omie & Opie','--renilde']];
 filters.forEach(([k,lab,col])=>{
   const b=document.createElement('button');b.className='fbtn';b.dataset.k=k;
   b.setAttribute('aria-pressed',k==='all');
@@ -238,10 +247,11 @@ function renderCards(){
     const involved=involvedSet(r);
     const dim=active!=='all'&&!involved.has(active);
     const day=document.createElement('article');
-    day.className='day'+(isWeekend(r.day)?' weekendday':'')+(dim?' dim':'');
+    day.className='day'+(isWeekend(r.day)?' weekendday':'')+(dim?' dim':'')+(r.date===TODAY?' today':'');
+    day.dataset.date=r.date;
     const h=document.createElement('div');h.className='day-h';
     h.innerHTML=`<span class="dnum">${r.dd}</span><span class="dname">${r.day}</span>`+
-      (isWeekend(r.day)?`<span class="tag-we">Weekend</span>`:`<span class="dmonth">juli</span>`);
+      (r.date===TODAY?`<span class="tag-today">Vandaag</span>`:isWeekend(r.day)?`<span class="tag-we">Weekend</span>`:`<span class="dmonth">juli</span>`);
     day.appendChild(h);
     const sl=document.createElement('div');sl.className='slots';
     SLOTS.forEach(s=>{
@@ -269,9 +279,9 @@ function renderTable(){
   let h=`<table><thead><tr><th>Dag</th><th>Ochtend</th><th>Dag</th><th>Avond</th><th>Werk Lieze</th><th>Taken &amp; notities</th></tr></thead><tbody>`;
   DATA.rows.forEach(r=>{
     const involved=involvedSet(r);const dim=active!=='all'&&!involved.has(active);
-    const cls=(isWeekend(r.day)?'we ':'')+(dim?'dim':'');
-    h+=`<tr class="${cls.trim()}">`;
-    h+=`<td class="tdate"><span class="tn">${r.dd}</span><span class="tw">${r.day}</span></td>`;
+    const cls=(isWeekend(r.day)?'we ':'')+(dim?'dim ':'')+(r.date===TODAY?'today':'');
+    h+=`<tr class="${cls.trim()}" data-date="${r.date}">`;
+    h+=`<td class="tdate"><span class="tn">${r.dd}</span><span class="tw">${r.day}${r.date===TODAY?' · vandaag':''}</span></td>`;
     SLOTS.forEach(s=>{
       const info=nameFor(r[s]);const mine=active!=='all'&&r[s].c===active;
       const dot=info.dot?`<span class="cd" style="background:var(${info.dot})"></span>`:'';
@@ -295,6 +305,21 @@ function render(){
   if(view==='cards'){grid.style.display='grid';tablewrap.style.display='none';renderCards();}
   else{grid.style.display='none';tablewrap.style.display='block';renderTable();}
 }
+
+let firstPaint=true;
+function scrollToToday(){
+  const target=TODAY>=DATA.rows[0].date && TODAY<=DATA.rows[DATA.rows.length-1].date ? TODAY : UPCOMING;
+  if(!target)return;
+  const sel=view==='cards'?`.day[data-date="${target}"]`:`tr[data-date="${target}"]`;
+  const el=document.querySelector(sel);
+  if(el){
+    const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    el.scrollIntoView({behavior:reduce?'auto':'smooth',block:'center'});
+  }
+}
+
+const _origRender=render;
+render=function(){_origRender();if(firstPaint){firstPaint=false;requestAnimationFrame(scrollToToday);}};
 render();
 </script>
 </body>
