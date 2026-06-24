@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Oppasplanning · Juli 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --lieze:#C6DEB5; --lieze-ink:#3a5a28;
+  --pieter:#70AD47; --pieter-ink:#23401a;
+  --renilde:#E9A8D8; --renilde-ink:#6e2059;
+  --linda:#5B9BD5; --linda-ink:#173a5c;
+  --kamp:#FFC000; --kamp-ink:#5c4500;
+  --weekend:#FBF4DC; --weekend-ink:#8a7a4a;
+  --letop:#E5484D;
+  --paper:#FCFBF7; --ink:#211d17; --muted:#7c756a;
+  --line:#e7e1d4; --card:#ffffff;
+  --shadow:0 1px 2px rgba(40,33,20,.05),0 8px 24px rgba(40,33,20,.06);
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,system-ui,sans-serif;line-height:1.5;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1100px;margin:0 auto;padding:0 18px 80px}
+
+header{padding:38px 0 22px;border-bottom:1px solid var(--line);margin-bottom:8px}
+.eyebrow{font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:600}
+h1{font-family:Fraunces,serif;font-weight:900;font-size:clamp(38px,8vw,68px);line-height:.95;margin:.18em 0 .12em;letter-spacing:-.01em}
+.sub{color:var(--muted);font-size:16px;max-width:48ch}
+.sub b{color:var(--ink);font-weight:600}
+
+.legend{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0 6px}
+.chip{display:inline-flex;align-items:center;gap:8px;padding:7px 13px 7px 10px;border-radius:999px;background:var(--card);border:1px solid var(--line);font-size:14px;font-weight:600;box-shadow:var(--shadow)}
+.dot{width:14px;height:14px;border-radius:5px;flex:none}
+.chip small{font-weight:500;color:var(--muted)}
+
+.controls{display:flex;flex-wrap:wrap;gap:18px;align-items:flex-end;margin:20px 0 26px;justify-content:space-between}
+.ctrlgroup{display:flex;flex-direction:column;gap:7px}
+.lbl{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.btnrow{display:flex;flex-wrap:wrap;gap:7px}
+.fbtn{border:1px solid var(--line);background:var(--card);color:var(--ink);font:inherit;font-size:14px;font-weight:600;padding:8px 15px;border-radius:999px;cursor:pointer;transition:.15s;display:inline-flex;align-items:center;gap:8px}
+.fbtn .pdot{width:11px;height:11px;border-radius:4px}
+.fbtn[aria-pressed="true"]{background:var(--ink);color:#fff;border-color:var(--ink)}
+.fbtn:focus-visible{outline:2px solid var(--linda);outline-offset:2px}
+
+/* persona banner */
+.persona{display:none;align-items:center;gap:14px;padding:16px 18px;border-radius:14px;margin:0 0 22px;border:1px solid var(--line);box-shadow:var(--shadow)}
+.persona.on{display:flex}
+.persona .pavatar{width:46px;height:46px;border-radius:12px;flex:none;display:flex;align-items:center;justify-content:center;font-family:Fraunces,serif;font-weight:900;font-size:22px;color:#fff}
+.persona h2{margin:0;font-family:Fraunces,serif;font-size:22px;font-weight:600}
+.persona p{margin:2px 0 0;color:var(--muted);font-size:14px}
+.persona .pcount{margin-left:auto;text-align:right;font-size:13px;color:var(--muted)}
+.persona .pcount b{display:block;font-family:Fraunces,serif;font-size:28px;color:var(--ink);font-weight:900;line-height:1}
+
+/* ---- CARD VIEW ---- */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:14px}
+.day{background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:var(--shadow);display:flex;flex-direction:column;transition:.2s}
+.day.weekendday{background:linear-gradient(180deg,#fffdf4,#fdf8e8)}
+.day.dim{opacity:.3;filter:saturate(.5)}
+.day.hl{outline:2px solid var(--ink);outline-offset:0}
+.day-h{display:flex;align-items:baseline;gap:10px;padding:14px 16px 10px}
+.dnum{font-family:Fraunces,serif;font-weight:900;font-size:30px;line-height:1}
+.dname{font-weight:700;font-size:15px}
+.dmonth{color:var(--muted);font-size:13px;margin-left:auto;font-weight:500}
+.tag-we{margin-left:auto;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--weekend-ink);background:#fbeeb8;padding:3px 9px;border-radius:999px}
+.slots{display:flex;flex-direction:column;gap:1px;background:var(--line)}
+.slot{display:grid;grid-template-columns:74px 1fr;background:#fff;align-items:stretch;min-height:46px}
+.slot .when{font-size:10px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;padding:8px 4px 8px 14px}
+.slot .who{display:flex;align-items:center;gap:9px;padding:8px 14px;font-weight:600;font-size:15px}
+.who .who-dot{width:11px;height:11px;border-radius:4px;flex:none}
+.who .who-extra{color:var(--muted);font-weight:500;font-size:13px}
+.slot.empty .who{color:var(--muted);font-weight:500;font-style:italic}
+.who[data-c="lieze"]{background:var(--lieze);color:var(--lieze-ink)}
+.who[data-c="pieter"]{background:var(--pieter);color:#fff}
+.who[data-c="renilde"]{background:var(--renilde);color:var(--renilde-ink)}
+.who[data-c="linda"]{background:var(--linda);color:#fff}
+.who[data-c="kamp"]{background:var(--kamp);color:var(--kamp-ink)}
+.who[data-c="weekend"],.who[data-c="none"]{background:#fff}
+.slot.mine .who{box-shadow:inset 4px 0 0 var(--ink)}
+.tasks{padding:10px 16px 14px;display:flex;flex-direction:column;gap:5px;border-top:1px solid var(--line)}
+.task{font-size:13px;color:var(--muted);display:flex;gap:7px;align-items:flex-start}
+.task b{color:var(--ink);font-weight:600;flex:none}
+.task.note{color:var(--letop);font-weight:600}
+.task.camp{color:var(--kamp-ink)}
+.task.mytask{background:#fff;border-radius:7px}
+.task.mytask b{color:var(--ink)}
+
+/* ---- TABLE VIEW ---- */
+.tablewrap{display:none;overflow-x:auto;border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);background:#fff}
+table{border-collapse:collapse;width:100%;min-width:680px;font-size:14px}
+thead th{position:sticky;top:0;background:#fff;text-align:left;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:700;padding:13px 12px;border-bottom:2px solid var(--line);white-space:nowrap}
+tbody td{padding:0;border-bottom:1px solid var(--line);vertical-align:middle}
+tbody tr.we{background:#fdf8e8}
+tbody tr.dim{opacity:.32}
+.tdate{padding:11px 12px;white-space:nowrap;font-weight:600}
+.tdate .tn{font-family:Fraunces,serif;font-weight:900;font-size:18px;margin-right:6px}
+.tdate .tw{color:var(--muted);font-weight:500;font-size:12px;display:block}
+.cell{padding:9px 12px;font-weight:600;height:100%;min-height:40px;display:flex;align-items:center;gap:7px;line-height:1.25}
+.cell .cd{width:9px;height:9px;border-radius:3px;flex:none}
+.cell small{font-weight:500;color:var(--muted);font-size:12px}
+.cell[data-c="lieze"]{background:var(--lieze);color:var(--lieze-ink)}
+.cell[data-c="pieter"]{background:var(--pieter);color:#fff}
+.cell[data-c="renilde"]{background:var(--renilde);color:var(--renilde-ink)}
+.cell[data-c="linda"]{background:var(--linda);color:#fff}
+.cell[data-c="kamp"]{background:var(--kamp);color:var(--kamp-ink)}
+.cell[data-c="weekend"]{color:var(--weekend-ink);font-style:italic;font-weight:500}
+.cell[data-c="none"]{color:var(--muted)}
+.cell.mine{box-shadow:inset 4px 0 0 var(--ink)}
+td.notes{padding:9px 12px;font-size:12.5px;color:var(--muted);min-width:170px}
+td.notes .nt{display:block}
+td.notes .nt.note{color:var(--letop);font-weight:600}
+td.notes .nt b{color:var(--ink);font-weight:600}
+
+footer{margin-top:40px;padding-top:20px;border-top:1px solid var(--line);color:var(--muted);font-size:13px}
+@media(max-width:560px){.grid{grid-template-columns:1fr}header{padding-top:26px}.controls{gap:16px}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="eyebrow">Oppasplanning</div>
+  <h1>Wie past<br>er op?</h1>
+  <p class="sub">Otto &amp; Rosie · <b>juli 2026</b>. Elke dag heeft drie momenten — ochtend, dag en avond. De <b>kleur</b> vertelt meteen wie aan de beurt is.</p>
+  <div class="legend" id="legend"></div>
+</header>
+
+<div class="controls">
+  <div class="ctrlgroup">
+    <span class="lbl">Wie ben je?</span>
+    <div class="btnrow" id="filterbar"></div>
+  </div>
+  <div class="ctrlgroup">
+    <span class="lbl">Weergave</span>
+    <div class="btnrow" id="viewbar">
+      <button class="fbtn" data-v="cards" aria-pressed="true">Kaarten</button>
+      <button class="fbtn" data-v="table" aria-pressed="false">Tabel</button>
+    </div>
+  </div>
+</div>
+
+<div class="persona" id="persona"></div>
+
+<main class="grid" id="grid"></main>
+<div class="tablewrap" id="tablewrap"></div>
+
+<footer>
+  Tik op een naam om <b>jouw</b> dagen en taken te zien — je eigen momenten krijgen een streep aan de zijkant. Geel = weekend / vrij blok. Oranje = georganiseerd kamp of activiteit.
+</footer>
+</div>
+
+<script>
+const DATA = {"rows": [{"date": "2026-07-01", "day": "Woensdag", "dd": 1, "mm": 7, "ochtend": {"v": "Lieze", "c": "lieze"}, "dag": {"v": "Multimove 9-16u Sportcentrum de Bemvoort Pelt", "c": "kamp"}, "avond": {"v": "Linda 16u, Pieter 18u", "c": "linda"}, "liezewerk": "12-20u", "lieze": "Brengen ochtend", "pieter": "Halen bij Oma om 18u", "omaopa": "Halen Bemvoort 16u, naar Akkerstraat", "omieopie": null, "opm": null}, {"date": "2026-07-02", "day": "Donderdag", "dd": 2, "mm": 7, "ochtend": {"v": "Renilde 8u", "c": "renilde"}, "dag": {"v": "Multimove 9-16u Sportcentrum de Bemvoort Pelt", "c": "kamp"}, "avond": {"v": "Lieze", "c": "lieze"}, "liezewerk": "8-15,30", "lieze": "Halen Avond", "pieter": null, "omaopa": null, "omieopie": "Brengen van Akkerstraat naar Bemvoort 8u", "opm": "Zwemles Otto"}, {"date": "2026-07-03", "day": "Vrijdag", "dd": 3, "mm": 7, "ochtend": {"v": "Pieter", "c": "pieter"}, "dag": {"v": "Multimove 9-16u Sportcentrum de Bemvoort Pelt", "c": "kamp"}, "avond": {"v": "Lieze", "c": "lieze"}, "liezewerk": "8-15,30", "lieze": "Halen Avond", "pieter": "Brengen Ochtend", "omaopa": null, "omieopie": null, "opm": null}, {"date": "2026-07-04", "day": "Zaterdag", "dd": 4, "mm": 7, "ochtend": {"v": null, "c": "weekend"}, "dag": {"v": null, "c": "weekend"}, "avond": {"v": null, "c": "weekend"}, "liezewerk": null, "lieze": null, "pieter": "Korea", "omaopa": null, "omieopie": null, "opm": null}, {"date": "2026-07-05", "day": "Zondag", "dd": 5, "mm": 7, "ochtend": {"v": null, "c": "weekend"}, "dag": {"v": null, "c": "weekend"}, "avond": {"v": "Babysit Escape room Opa/Oma", "c": "weekend"}, "liezewerk": null, "lieze": null, "pieter": "Korea", "omaopa": "Babysit Escaperoom Akkerstraat", "omieopie": null, "opm": "Escaperoom babysit - L&D (thuis)"}, {"date": "2026-07-06", "day": "Maandag", "dd": 6, "mm": 7, "ochtend": {"v": "Lieze", "c": "lieze"}, "dag": {"v": "Lieze", "c": "lieze"}, "avond": {"v": "Lieze", "c": "lieze"}, "liezewerk": "vrij", "lieze": "Alles", "pieter": "Korea", "omaopa": null, "omieopie": null, "opm": null}, {"date": "2026-07-07", "day": "Dinsdag", "dd": 7, "mm": 7, "ochtend": {"v": "Lieze", "c": "lieze"}, "dag": {"v": "Lieze", "c": "lieze"}, "avond": {"v": "Lieze", "c": "lieze"}, "liezewerk": "vrij", "lieze": "Alles", "pieter": "Korea", "omaopa": null, "omieopie": null, "opm": null}, {"date": "2026-07-08", "day": "Woensdag", "dd": 8, "mm": 7, "ochtend": {"v": "Lieze", "c": "lieze"}, "dag": {"v": "Linda", "c": "linda"}, "avond": {"v": "Slapen Linda", "c": "linda"}, "liezewerk": "8-16,30", "lieze": "Brengen ochtend", "pieter": "Korea", "omaopa": "Hele dag Eksel en blijven slapen", "omieopie": null, "opm": null}, {"date": "2026-07-09", "day": "Donderdag", "dd": 9, "mm": 7, "ochtend": {"v": "Slapen Linda", "c": "linda"}, "dag": {"v": "Linda", "c": "linda"}, "avond": {"v": "Lieze halen 18u", "c": "lieze"}, "liezewerk": "7,30-16,00", "lieze": "Halen bij Oma", "pieter": "Korea", "omaopa": "Hele dag Eksel", "omieopie": null, "opm": null}, {"date": "2026-07-10", "day": "Vrijdag", "dd": 10, "mm": 7, "ochtend": {"v": "Renilde 8u", "c": "renilde"}, "dag": {"v": "Renilde", "c": "renilde"}, "avond": {"v": "Slapen Renilde", "c": "renilde"}, "liezewerk": "8,00-14,00", "lieze": null, "pieter": "Korea", "omaopa": null, "omieopie": "Halen in Akkerstraat 8, hele dag Hamont en blijven slapen", "opm": null}, {"date": "2026-07-11", "day": "Zaterdag", "dd": 11, "mm": 7, "ochtend": {"v": "Slapen Renilde", "c": "renilde"}, "dag": {"v": null, "c": "weekend"}, "avond": {"v": null, "c": "weekend"}, "liezewerk": null, "lieze": "Halen bij Omie", "pieter": "Korea", "omaopa": null, "omieopie": null, "opm": null}, {"date": "2026-07-12", "day": "Zondag", "dd": 12, "mm": 7, "ochtend": {"v": null, "c": "weekend"}, "dag": {"v": null, "c": "weekend"}, "avond": {"v": null, "c": "weekend"}, "liezewerk": null, "lieze": null, "pieter": "Korea", "omaopa": null, "omieopie": null, "opm": null}, {"date": "2026-07-13", "day": "Maandag", "dd": 13, "mm": 7, "ochtend": {"v": "Lieze", "c": "lieze"}, "dag": {"v": "Berenavontuur Stationsstraat 25, Pelt, Limburg", "c": "kamp"}, "avond": {"v": "Lieze", "c": "lieze"}, "liezewerk": "9.00 - 15.30", "lieze": "Brengen en Halen", "pieter": "Korea", "omaopa": null, "omieopie": null, "opm": "Slapen? Linda?"}, {"date": "2026-07-14", "day": "Dinsdag", "dd": 14, "mm": 7, "ochtend": {"v": "Renilde 7u15", "c": "renilde"}, "dag": {"v": "Berenavontuur Stationsstraat 25, Pelt, Limburg", "c": "kamp"}, "avond": {"v": "Lieze", "c": "lieze"}, "liezewerk": "7.30 - 15.30", "lieze": "Halen Avond", "pieter": "Korea", "omaopa": null, "omieopie": "Brengen 7u15!!", "opm": null}, {"date": "2026-07-15", "day": "Woensdag", "dd": 15, "mm": 7, "ochtend": {"v": "Linda 7u45", "c": "linda"}, "dag": {"v": "Berenavontuur Stationsstraat 25, Pelt, Limburg", "c": "kamp"}, "avond": {"v": "Lieze", "c": "lieze"}, "liezewerk": "8,00 - 15,30", "lieze": "Halen Avond", "pieter": "Korea", "omaopa": "Brengen 7u45 van Akkerstraat naar Berenavontuur", "omieopie": null, "opm": "Slapen? Renilde"}, {"date": "2026-07-16", "day": "Donderdag", "dd": 16, "mm": 7, "ochtend": {"v": "Renilde 7u15", "c": "renilde"}, "dag": {"v": "Berenavontuur Stationsstraat 25, Pelt, Limburg", "c": "kamp"}, "avond": {"v": "Renilde", "c": "renilde"}, "liezewerk": "7,30 - 16,30", "lieze": null, "pieter": "Korea", "omaopa": null, "omieopie": "Brengen en halen 7u15!!", "opm": null}, {"date": "2026-07-17", "day": "Vrijdag", "dd": 17, "mm": 7, "ochtend": {"v": "Lieze", "c": "lieze"}, "dag": {"v": "Berenavontuur Stationsstraat 25, Pelt, Limburg", "c": "kamp"}, "avond": {"v": "Lieze", "c": "lieze"}, "liezewerk": "vrij", "lieze": "Brengen en Halen", "pieter": null, "omaopa": null, "omieopie": null, "opm": null}, {"date": "2026-07-18", "day": "Zaterdag", "dd": 18, "mm": 7, "ochtend": {"v": null, "c": "weekend"}, "dag": {"v": null, "c": "weekend"}, "avond": {"v": null, "c": "weekend"}, "liezewerk": null, "lieze": null, "pieter": null, "omaopa": null, "omieopie": null, "opm": "Trouw Aaron"}, {"date": "2026-07-19", "day": "Zondag", "dd": 19, "mm": 7, "ochtend": {"v": null, "c": "weekend"}, "dag": {"v": null, "c": "weekend"}, "avond": {"v": null, "c": "weekend"}, "liezewerk": null, "lieze": null, "pieter": null, "omaopa": null, "omieopie": null, "opm": null}, {"date": "2026-07-20", "day": "Maandag", "dd": 20, "mm": 7, "ochtend": {"v": "Lieze", "c": "lieze"}, "dag": {"v": "duploweek 9-16u Stationsstraat 25, Pelt, Limburg", "c": "kamp"}, "avond": {"v": "Pieter", "c": "pieter"}, "liezewerk": "12,00-20,00", "lieze": "Brengen", "pieter": "Halen", "omaopa": null, "omieopie": null, "opm": null}, {"date": "2026-07-21", "day": "Dinsdag", "dd": 21, "mm": 7, "ochtend": {"v": "Lieze", "c": "lieze"}, "dag": {"v": "Lieze", "c": "lieze"}, "avond": {"v": "Lieze", "c": "lieze"}, "liezewerk": null, "lieze": "Alles", "pieter": null, "omaopa": null, "omieopie": null, "opm": null}, {"date": "2026-07-22", "day": "Woensdag", "dd": 22, "mm": 7, "ochtend": {"v": "Lieze", "c": "lieze"}, "dag": {"v": "duploweek 9-16u Stationsstraat 25, Pelt, Limburg", "c": "kamp"}, "avond": {"v": "Linda 16u, Pieter 18u", "c": "linda"}, "liezewerk": "12,00 - 20,00", "lieze": "Brengen", "pieter": "Halen bij Oma om 18u", "omaopa": "Halen Duploweek 16u", "omieopie": null, "opm": null}, {"date": "2026-07-23", "day": "Donderdag", "dd": 23, "mm": 7, "ochtend": {"v": "Linda 7u45", "c": "linda"}, "dag": {"v": "duploweek 9-16u Stationsstraat 25, Pelt, Limburg", "c": "kamp"}, "avond": {"v": "Lieze", "c": "lieze"}, "liezewerk": "8,00 - 14,00", "lieze": "Halen", "pieter": null, "omaopa": "Brengen 7u45 van Akkerstraat naar Duploweek", "omieopie": null, "opm": null}, {"date": "2026-07-24", "day": "Vrijdag", "dd": 24, "mm": 7, "ochtend": {"v": "Pieter", "c": "pieter"}, "dag": {"v": "duploweek 9-16u Stationsstraat 25, Pelt, Limburg", "c": "kamp"}, "avond": {"v": "Lieze", "c": "lieze"}, "liezewerk": "7,00-15,30", "lieze": "Halen", "pieter": "Brengen", "omaopa": null, "omieopie": null, "opm": null}, {"date": "2026-07-25", "day": "Zaterdag", "dd": 25, "mm": 7, "ochtend": {"v": null, "c": "weekend"}, "dag": {"v": null, "c": "weekend"}, "avond": {"v": null, "c": "weekend"}, "liezewerk": null, "lieze": null, "pieter": null, "omaopa": null, "omieopie": null, "opm": null}, {"date": "2026-07-26", "day": "Zondag", "dd": 26, "mm": 7, "ochtend": {"v": null, "c": "weekend"}, "dag": {"v": null, "c": "weekend"}, "avond": {"v": null, "c": "weekend"}, "liezewerk": null, "lieze": null, "pieter": null, "omaopa": null, "omieopie": null, "opm": null}, {"date": "2026-07-27", "day": "Maandag", "dd": 27, "mm": 7, "ochtend": {"v": "Pieter", "c": "pieter"}, "dag": {"v": "Linda", "c": "linda"}, "avond": {"v": "Lieze", "c": "lieze"}, "liezewerk": "7,30-16,00", "lieze": "Halen", "pieter": "Brengen", "omaopa": "Dagopvang", "omieopie": null, "opm": null}, {"date": "2026-07-28", "day": "Dinsdag", "dd": 28, "mm": 7, "ochtend": {"v": "Lieze", "c": "lieze"}, "dag": {"v": "Lieze", "c": "lieze"}, "avond": {"v": "Lieze", "c": "lieze"}, "liezewerk": "vrij", "lieze": "Alles", "pieter": null, "omaopa": null, "omieopie": null, "opm": null}, {"date": "2026-07-29", "day": "Woensdag", "dd": 29, "mm": 7, "ochtend": {"v": "Pieter", "c": "pieter"}, "dag": {"v": "Linda", "c": "linda"}, "avond": {"v": "Lieze", "c": "lieze"}, "liezewerk": "7,00-15,30", "lieze": "Halen", "pieter": "Brengen", "omaopa": "Dagopvang", "omieopie": null, "opm": null}, {"date": "2026-07-30", "day": "Donderdag", "dd": 30, "mm": 7, "ochtend": {"v": "Pieter", "c": "pieter"}, "dag": {"v": "Renilde", "c": "renilde"}, "avond": {"v": "Slapen Renilde", "c": "renilde"}, "liezewerk": "8,00 - 16,30", "lieze": null, "pieter": "Brengen", "omaopa": "Hele dag en slapen", "omieopie": null, "opm": null}, {"date": "2026-07-31", "day": "Vrijdag", "dd": 31, "mm": 7, "ochtend": {"v": "Slapen Renilde", "c": "renilde"}, "dag": {"v": "Renilde", "c": "renilde"}, "avond": {"v": "Lieze", "c": "lieze"}, "liezewerk": "7,30 - 13,30", "lieze": "Halen", "pieter": null, "omaopa": "hele dag", "omieopie": null, "opm": null}], "camps": [{"date": "2026-07-01", "otto": "Multimove zomersportkamp"}, {"date": "2026-07-02", "otto": "Multimove zomersportkamp"}, {"date": "2026-07-03", "otto": "Multimove zomersportkamp"}]};
+const PEOPLE = {
+  lieze:   {label:'Lieze',           who:'mama',        var:'--lieze',   initial:'L'},
+  pieter:  {label:'Pieter',          who:'papa',        var:'--pieter',  initial:'P'},
+  renilde: {label:'Renilde & Ronny', who:'oma & opa',   var:'--renilde', initial:'R'},
+  linda:   {label:'Linda & Dirk',    who:'omie & opie', var:'--linda',   initial:'L'},
+  kamp:    {label:'Kamp / activiteit',who:'',           var:'--kamp',    initial:'K'},
+};
+const WHEN={ochtend:'Ochtend',dag:'Dag',avond:'Avond'};
+const SLOTS=['ochtend','dag','avond'];
+const campMap={};DATA.camps.forEach(c=>campMap[c.date]=c.otto);
+let active='all', view='cards';
+
+// task fields that belong to each persona (for "eigen info")
+const TASK_OWNER={lieze:['lieze','liezewerk'],pieter:['pieter'],renilde:['omaopa'],linda:['omieopie']};
+const TASK_LABEL={lieze:'Lieze',pieter:'Pieter',omaopa:'Oma/Opa',omieopie:'Omie/Opie',liezewerk:'Werk Lieze'};
+
+// legend
+const legend=document.getElementById('legend');
+Object.entries(PEOPLE).forEach(([k,p])=>{
+  const c=document.createElement('span');c.className='chip';
+  c.innerHTML=`<span class="dot" style="background:var(${p.var})"></span>${p.label}${p.who?` <small>${p.who}</small>`:''}`;
+  legend.appendChild(c);
+});
+
+// person filter
+const fbar=document.getElementById('filterbar');
+const filters=[['all','Iedereen',null],['lieze','Lieze','--lieze'],['pieter','Pieter','--pieter'],['renilde','Oma & Opa','--renilde'],['linda','Omie & Opie','--linda']];
+filters.forEach(([k,lab,col])=>{
+  const b=document.createElement('button');b.className='fbtn';b.dataset.k=k;
+  b.setAttribute('aria-pressed',k==='all');
+  b.innerHTML=(col?`<span class="pdot" style="background:var(${col})"></span>`:'')+lab;
+  b.onclick=()=>{active=k;[...fbar.children].forEach(x=>x.setAttribute('aria-pressed',x.dataset.k===k));render();};
+  fbar.appendChild(b);
+});
+// view toggle
+const vbar=document.getElementById('viewbar');
+[...vbar.children].forEach(b=>b.onclick=()=>{view=b.dataset.v;[...vbar.children].forEach(x=>x.setAttribute('aria-pressed',x.dataset.v===view));render();});
+
+function isWeekend(d){return d==='Zaterdag'||d==='Zondag';}
+function involvedSet(r){const s=new Set();SLOTS.forEach(sl=>{if(r[sl].c in PEOPLE && r[sl].c!=='kamp')s.add(r[sl].c);});
+  // also if they have a task that day, they're involved
+  if(active in TASK_OWNER){TASK_OWNER[active].forEach(f=>{if(r[f])s.add(active);});}
+  return s;}
+function extraText(v,c){if(!v)return null;const names=['Lieze','Pieter','Renilde','Linda','Ronny','Dirk'];return names.includes(v.trim())?null:v;}
+function nameFor(cell){const c=cell.c,v=cell.v;
+  if(c in PEOPLE)return{dot:PEOPLE[c].var,name:PEOPLE[c].label,extra:extraText(v,c)};
+  if(c==='weekend')return{dot:null,name:v||'Weekend / vrij'};
+  if(c==='kamp')return{dot:'--kamp',name:v||'Kamp'};
+  return{dot:null,name:v||'—',empty:!v};}
+
+// persona banner
+function renderPersona(){
+  const el=document.getElementById('persona');
+  if(active==='all'||!(active in PEOPLE)){el.className='persona';el.innerHTML='';return;}
+  const p=PEOPLE[active];let oppasdagen=0,taken=0;
+  DATA.rows.forEach(r=>{
+    if(SLOTS.some(sl=>r[sl].c===active))oppasdagen++;
+    TASK_OWNER[active].forEach(f=>{if(r[f])taken++;});
+  });
+  el.className='persona on';
+  el.innerHTML=`<span class="pavatar" style="background:var(${p.var})">${p.initial}</span>
+    <div><h2>${p.label}</h2><p>Hieronder zie je enkel jouw oppasmomenten en taken — de rest is gedimd.</p></div>
+    <div class="pcount"><b>${oppasdagen}</b>oppasdagen<br>${taken} taken</div>`;
+}
+
+const grid=document.getElementById('grid');
+const tablewrap=document.getElementById('tablewrap');
+
+function buildTasks(r){
+  const out=[];
+  const mineFields = active in TASK_OWNER ? TASK_OWNER[active] : [];
+  [['lieze',r.lieze],['pieter',r.pieter],['omaopa',r.omaopa],['omieopie',r.omieopie],['liezewerk',r.liezewerk]].forEach(([f,v])=>{
+    if(v)out.push({k:TASK_LABEL[f],v,cls:'',mine:mineFields.includes(f)});
+  });
+  if(campMap[r.date])out.push({k:'Kamp',v:campMap[r.date],cls:'camp'});
+  if(r.opm)out.push({k:'Let op',v:r.opm,cls:'note'});
+  return out;
+}
+
+function renderCards(){
+  grid.innerHTML='';
+  DATA.rows.forEach(r=>{
+    const involved=involvedSet(r);
+    const dim=active!=='all'&&!involved.has(active);
+    const day=document.createElement('article');
+    day.className='day'+(isWeekend(r.day)?' weekendday':'')+(dim?' dim':'');
+    const h=document.createElement('div');h.className='day-h';
+    h.innerHTML=`<span class="dnum">${r.dd}</span><span class="dname">${r.day}</span>`+
+      (isWeekend(r.day)?`<span class="tag-we">Weekend</span>`:`<span class="dmonth">juli</span>`);
+    day.appendChild(h);
+    const sl=document.createElement('div');sl.className='slots';
+    SLOTS.forEach(s=>{
+      const info=nameFor(r[s]);const mine=active!=='all'&&r[s].c===active;
+      const row=document.createElement('div');row.className='slot'+(info.empty?' empty':'')+(mine?' mine':'');
+      const dot=info.dot?`<span class="who-dot" style="background:var(${info.dot})"></span>`:'';
+      const extra=info.extra?`<span class="who-extra">· ${info.extra}</span>`:'';
+      row.innerHTML=`<span class="when">${WHEN[s]}</span><span class="who" data-c="${r[s].c}">${dot}<span>${info.name}</span>${extra}</span>`;
+      sl.appendChild(row);
+    });
+    day.appendChild(sl);
+    let tasks=buildTasks(r);
+    if(active!=='all')tasks=tasks.filter(t=>t.mine||t.cls); // own tasks + camp/note context
+    if(tasks.length){
+      const tf=document.createElement('div');tf.className='tasks';
+      tasks.forEach(t=>{const d=document.createElement('div');d.className='task'+(t.cls?' '+t.cls:'')+(t.mine?' mytask':'');
+        d.innerHTML=`<b>${t.k}:</b><span>${t.v}</span>`;tf.appendChild(d);});
+      day.appendChild(tf);
+    }
+    grid.appendChild(day);
+  });
+}
+
+function renderTable(){
+  let h=`<table><thead><tr><th>Dag</th><th>Ochtend</th><th>Dag</th><th>Avond</th><th>Werk Lieze</th><th>Taken &amp; notities</th></tr></thead><tbody>`;
+  DATA.rows.forEach(r=>{
+    const involved=involvedSet(r);const dim=active!=='all'&&!involved.has(active);
+    const cls=(isWeekend(r.day)?'we ':'')+(dim?'dim':'');
+    h+=`<tr class="${cls.trim()}">`;
+    h+=`<td class="tdate"><span class="tn">${r.dd}</span><span class="tw">${r.day}</span></td>`;
+    SLOTS.forEach(s=>{
+      const info=nameFor(r[s]);const mine=active!=='all'&&r[s].c===active;
+      const dot=info.dot?`<span class="cd" style="background:var(${info.dot})"></span>`:'';
+      const ex=info.extra?` <small>· ${info.extra}</small>`:'';
+      h+=`<td><div class="cell${mine?' mine':''}" data-c="${r[s].c}">${dot}<span>${info.name}${ex}</span></div></td>`;
+    });
+    h+=`<td><div class="cell" data-c="none">${r.liezewerk||'—'}</div></td>`;
+    // notes column
+    let notes=[];
+    [['lieze',r.lieze],['pieter',r.pieter],['omaopa',r.omaopa],['omieopie',r.omieopie]].forEach(([f,v])=>{if(v)notes.push(`<span class="nt"><b>${TASK_LABEL[f]}:</b> ${v}</span>`);});
+    if(campMap[r.date])notes.push(`<span class="nt"><b>Kamp:</b> ${campMap[r.date]}</span>`);
+    if(r.opm)notes.push(`<span class="nt note">⚠ ${r.opm}</span>`);
+    h+=`<td class="notes">${notes.join('')||'—'}</td></tr>`;
+  });
+  h+=`</tbody></table>`;
+  tablewrap.innerHTML=h;
+}
+
+function render(){
+  renderPersona();
+  if(view==='cards'){grid.style.display='grid';tablewrap.style.display='none';renderCards();}
+  else{grid.style.display='none';tablewrap.style.display='block';renderTable();}
+}
+render();
+</script>
+</body>
+</html>
