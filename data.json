@@ -1,0 +1,762 @@
+{
+  "rows": [
+    {
+      "date": "2026-07-01",
+      "day": "Woensdag",
+      "dd": 1,
+      "mm": 7,
+      "ochtend": {
+        "v": "Lieze",
+        "c": "lieze"
+      },
+      "dag": {
+        "v": "Multimove 9-16u Sportcentrum de Bemvoort Pelt",
+        "c": "kamp"
+      },
+      "avond": {
+        "v": "Linda 16u, Pieter 18u",
+        "c": "linda"
+      },
+      "liezewerk": "12-20u",
+      "lieze": "Brengen ochtend",
+      "pieter": "Halen bij Oma om 18u",
+      "omaopa": "Halen Bemvoort 16u, naar Akkerstraat",
+      "omieopie": null,
+      "opm": null
+    },
+    {
+      "date": "2026-07-02",
+      "day": "Donderdag",
+      "dd": 2,
+      "mm": 7,
+      "ochtend": {
+        "v": "Renilde 8u",
+        "c": "renilde"
+      },
+      "dag": {
+        "v": "Multimove 9-16u Sportcentrum de Bemvoort Pelt",
+        "c": "kamp"
+      },
+      "avond": {
+        "v": "Lieze",
+        "c": "lieze"
+      },
+      "liezewerk": "8-15,30",
+      "lieze": "Halen Avond",
+      "pieter": null,
+      "omaopa": null,
+      "omieopie": "Brengen van Akkerstraat naar Bemvoort 8u",
+      "opm": "Zwemles Otto"
+    },
+    {
+      "date": "2026-07-03",
+      "day": "Vrijdag",
+      "dd": 3,
+      "mm": 7,
+      "ochtend": {
+        "v": "Pieter",
+        "c": "pieter"
+      },
+      "dag": {
+        "v": "Multimove 9-16u Sportcentrum de Bemvoort Pelt",
+        "c": "kamp"
+      },
+      "avond": {
+        "v": "Lieze",
+        "c": "lieze"
+      },
+      "liezewerk": "8-15,30",
+      "lieze": "Halen Avond",
+      "pieter": "Brengen Ochtend",
+      "omaopa": null,
+      "omieopie": null,
+      "opm": null
+    },
+    {
+      "date": "2026-07-04",
+      "day": "Zaterdag",
+      "dd": 4,
+      "mm": 7,
+      "ochtend": {
+        "v": null,
+        "c": "weekend"
+      },
+      "dag": {
+        "v": null,
+        "c": "weekend"
+      },
+      "avond": {
+        "v": null,
+        "c": "weekend"
+      },
+      "liezewerk": null,
+      "lieze": null,
+      "pieter": "Korea",
+      "omaopa": null,
+      "omieopie": null,
+      "opm": null
+    },
+    {
+      "date": "2026-07-05",
+      "day": "Zondag",
+      "dd": 5,
+      "mm": 7,
+      "ochtend": {
+        "v": null,
+        "c": "weekend"
+      },
+      "dag": {
+        "v": null,
+        "c": "weekend"
+      },
+      "avond": {
+        "v": "Babysit Escape room Opa/Oma",
+        "c": "weekend"
+      },
+      "liezewerk": null,
+      "lieze": null,
+      "pieter": "Korea",
+      "omaopa": "Babysit Escaperoom Akkerstraat",
+      "omieopie": null,
+      "opm": "Escaperoom babysit - L&D (thuis)"
+    },
+    {
+      "date": "2026-07-06",
+      "day": "Maandag",
+      "dd": 6,
+      "mm": 7,
+      "ochtend": {
+        "v": "Lieze",
+        "c": "lieze"
+      },
+      "dag": {
+        "v": "Lieze",
+        "c": "lieze"
+      },
+      "avond": {
+        "v": "Lieze",
+        "c": "lieze"
+      },
+      "liezewerk": "vrij",
+      "lieze": "Alles",
+      "pieter": "Korea",
+      "omaopa": null,
+      "omieopie": null,
+      "opm": null
+    },
+    {
+      "date": "2026-07-07",
+      "day": "Dinsdag",
+      "dd": 7,
+      "mm": 7,
+      "ochtend": {
+        "v": "Lieze",
+        "c": "lieze"
+      },
+      "dag": {
+        "v": "Lieze",
+        "c": "lieze"
+      },
+      "avond": {
+        "v": "Lieze",
+        "c": "lieze"
+      },
+      "liezewerk": "vrij",
+      "lieze": "Alles",
+      "pieter": "Korea",
+      "omaopa": null,
+      "omieopie": null,
+      "opm": null
+    },
+    {
+      "date": "2026-07-08",
+      "day": "Woensdag",
+      "dd": 8,
+      "mm": 7,
+      "ochtend": {
+        "v": "Lieze",
+        "c": "lieze"
+      },
+      "dag": {
+        "v": "Linda",
+        "c": "linda"
+      },
+      "avond": {
+        "v": "Slapen Linda",
+        "c": "linda"
+      },
+      "liezewerk": "8-16,30",
+      "lieze": "Brengen ochtend",
+      "pieter": "Korea",
+      "omaopa": "Hele dag Eksel en blijven slapen",
+      "omieopie": null,
+      "opm": null
+    },
+    {
+      "date": "2026-07-09",
+      "day": "Donderdag",
+      "dd": 9,
+      "mm": 7,
+      "ochtend": {
+        "v": "Slapen Linda",
+        "c": "linda"
+      },
+      "dag": {
+        "v": "Linda",
+        "c": "linda"
+      },
+      "avond": {
+        "v": "Lieze halen 18u",
+        "c": "lieze"
+      },
+      "liezewerk": "7,30-16,00",
+      "lieze": "Halen bij Oma",
+      "pieter": "Korea",
+      "omaopa": "Hele dag Eksel",
+      "omieopie": null,
+      "opm": null
+    },
+    {
+      "date": "2026-07-10",
+      "day": "Vrijdag",
+      "dd": 10,
+      "mm": 7,
+      "ochtend": {
+        "v": "Renilde 8u",
+        "c": "renilde"
+      },
+      "dag": {
+        "v": "Renilde",
+        "c": "renilde"
+      },
+      "avond": {
+        "v": "Slapen Renilde",
+        "c": "renilde"
+      },
+      "liezewerk": "8,00-14,00",
+      "lieze": null,
+      "pieter": "Korea",
+      "omaopa": null,
+      "omieopie": "Halen in Akkerstraat 8, hele dag Hamont en blijven slapen",
+      "opm": null
+    },
+    {
+      "date": "2026-07-11",
+      "day": "Zaterdag",
+      "dd": 11,
+      "mm": 7,
+      "ochtend": {
+        "v": "Slapen Renilde",
+        "c": "renilde"
+      },
+      "dag": {
+        "v": null,
+        "c": "weekend"
+      },
+      "avond": {
+        "v": null,
+        "c": "weekend"
+      },
+      "liezewerk": null,
+      "lieze": "Halen bij Omie",
+      "pieter": "Korea",
+      "omaopa": null,
+      "omieopie": null,
+      "opm": null
+    },
+    {
+      "date": "2026-07-12",
+      "day": "Zondag",
+      "dd": 12,
+      "mm": 7,
+      "ochtend": {
+        "v": null,
+        "c": "weekend"
+      },
+      "dag": {
+        "v": null,
+        "c": "weekend"
+      },
+      "avond": {
+        "v": null,
+        "c": "weekend"
+      },
+      "liezewerk": null,
+      "lieze": null,
+      "pieter": "Korea",
+      "omaopa": null,
+      "omieopie": null,
+      "opm": null
+    },
+    {
+      "date": "2026-07-13",
+      "day": "Maandag",
+      "dd": 13,
+      "mm": 7,
+      "ochtend": {
+        "v": "Lieze",
+        "c": "lieze"
+      },
+      "dag": {
+        "v": "Berenavontuur Stationsstraat 25, Pelt, Limburg",
+        "c": "kamp"
+      },
+      "avond": {
+        "v": "Lieze",
+        "c": "lieze"
+      },
+      "liezewerk": "9.00 - 15.30",
+      "lieze": "Brengen en Halen",
+      "pieter": "Korea",
+      "omaopa": null,
+      "omieopie": null,
+      "opm": null
+    },
+    {
+      "date": "2026-07-14",
+      "day": "Dinsdag",
+      "dd": 14,
+      "mm": 7,
+      "ochtend": {
+        "v": "Renilde 7u15",
+        "c": "renilde"
+      },
+      "dag": {
+        "v": "Berenavontuur Stationsstraat 25, Pelt, Limburg",
+        "c": "kamp"
+      },
+      "avond": {
+        "v": "Lieze",
+        "c": "lieze"
+      },
+      "liezewerk": "7.30 - 15.30",
+      "lieze": "Halen Avond",
+      "pieter": "Korea",
+      "omaopa": null,
+      "omieopie": "Brengen 7u15!!",
+      "opm": null
+    },
+    {
+      "date": "2026-07-15",
+      "day": "Woensdag",
+      "dd": 15,
+      "mm": 7,
+      "ochtend": {
+        "v": "Linda 7u45",
+        "c": "linda"
+      },
+      "dag": {
+        "v": "Berenavontuur Stationsstraat 25, Pelt, Limburg",
+        "c": "kamp"
+      },
+      "avond": {
+        "v": "Lieze",
+        "c": "lieze"
+      },
+      "liezewerk": "8,00 - 15,30",
+      "lieze": "Halen Avond",
+      "pieter": "Korea",
+      "omaopa": "Brengen 7u45 van Akkerstraat naar Berenavontuur",
+      "omieopie": null,
+      "opm": "Slapen? Renilde"
+    },
+    {
+      "date": "2026-07-16",
+      "day": "Donderdag",
+      "dd": 16,
+      "mm": 7,
+      "ochtend": {
+        "v": "Renilde 7u15",
+        "c": "renilde"
+      },
+      "dag": {
+        "v": "Berenavontuur Stationsstraat 25, Pelt, Limburg",
+        "c": "kamp"
+      },
+      "avond": {
+        "v": "Renilde",
+        "c": "renilde"
+      },
+      "liezewerk": "7,30 - 16,30",
+      "lieze": null,
+      "pieter": "Korea",
+      "omaopa": null,
+      "omieopie": "Brengen en halen 7u15!!",
+      "opm": null
+    },
+    {
+      "date": "2026-07-17",
+      "day": "Vrijdag",
+      "dd": 17,
+      "mm": 7,
+      "ochtend": {
+        "v": "Lieze",
+        "c": "lieze"
+      },
+      "dag": {
+        "v": "Berenavontuur Stationsstraat 25, Pelt, Limburg",
+        "c": "kamp"
+      },
+      "avond": {
+        "v": "Lieze",
+        "c": "lieze"
+      },
+      "liezewerk": "vrij",
+      "lieze": "Brengen en Halen",
+      "pieter": null,
+      "omaopa": null,
+      "omieopie": null,
+      "opm": null
+    },
+    {
+      "date": "2026-07-18",
+      "day": "Zaterdag",
+      "dd": 18,
+      "mm": 7,
+      "ochtend": {
+        "v": null,
+        "c": "weekend"
+      },
+      "dag": {
+        "v": null,
+        "c": "weekend"
+      },
+      "avond": {
+        "v": null,
+        "c": "weekend"
+      },
+      "liezewerk": null,
+      "lieze": null,
+      "pieter": null,
+      "omaopa": null,
+      "omieopie": null,
+      "opm": "Trouw Aaron"
+    },
+    {
+      "date": "2026-07-19",
+      "day": "Zondag",
+      "dd": 19,
+      "mm": 7,
+      "ochtend": {
+        "v": null,
+        "c": "weekend"
+      },
+      "dag": {
+        "v": null,
+        "c": "weekend"
+      },
+      "avond": {
+        "v": null,
+        "c": "weekend"
+      },
+      "liezewerk": null,
+      "lieze": null,
+      "pieter": null,
+      "omaopa": null,
+      "omieopie": null,
+      "opm": null
+    },
+    {
+      "date": "2026-07-20",
+      "day": "Maandag",
+      "dd": 20,
+      "mm": 7,
+      "ochtend": {
+        "v": "Lieze",
+        "c": "lieze"
+      },
+      "dag": {
+        "v": "duploweek 9-16u Stationsstraat 25, Pelt, Limburg",
+        "c": "kamp"
+      },
+      "avond": {
+        "v": "Pieter",
+        "c": "pieter"
+      },
+      "liezewerk": "12,00-20,00",
+      "lieze": "Brengen",
+      "pieter": "Halen",
+      "omaopa": null,
+      "omieopie": null,
+      "opm": null
+    },
+    {
+      "date": "2026-07-21",
+      "day": "Dinsdag",
+      "dd": 21,
+      "mm": 7,
+      "ochtend": {
+        "v": "Lieze",
+        "c": "lieze"
+      },
+      "dag": {
+        "v": "Lieze",
+        "c": "lieze"
+      },
+      "avond": {
+        "v": "Lieze",
+        "c": "lieze"
+      },
+      "liezewerk": null,
+      "lieze": "Alles",
+      "pieter": null,
+      "omaopa": null,
+      "omieopie": null,
+      "opm": null
+    },
+    {
+      "date": "2026-07-22",
+      "day": "Woensdag",
+      "dd": 22,
+      "mm": 7,
+      "ochtend": {
+        "v": "Lieze",
+        "c": "lieze"
+      },
+      "dag": {
+        "v": "duploweek 9-16u Stationsstraat 25, Pelt, Limburg",
+        "c": "kamp"
+      },
+      "avond": {
+        "v": "Linda 16u, Pieter 18u",
+        "c": "linda"
+      },
+      "liezewerk": "12,00 - 20,00",
+      "lieze": "Brengen",
+      "pieter": "Halen bij Oma om 18u",
+      "omaopa": "Halen Duploweek 16u",
+      "omieopie": null,
+      "opm": null
+    },
+    {
+      "date": "2026-07-23",
+      "day": "Donderdag",
+      "dd": 23,
+      "mm": 7,
+      "ochtend": {
+        "v": "Linda 7u45",
+        "c": "linda"
+      },
+      "dag": {
+        "v": "duploweek 9-16u Stationsstraat 25, Pelt, Limburg",
+        "c": "kamp"
+      },
+      "avond": {
+        "v": "Lieze",
+        "c": "lieze"
+      },
+      "liezewerk": "8,00 - 14,00",
+      "lieze": "Halen",
+      "pieter": null,
+      "omaopa": "Brengen 7u45 van Akkerstraat naar Duploweek",
+      "omieopie": null,
+      "opm": null
+    },
+    {
+      "date": "2026-07-24",
+      "day": "Vrijdag",
+      "dd": 24,
+      "mm": 7,
+      "ochtend": {
+        "v": "Pieter",
+        "c": "pieter"
+      },
+      "dag": {
+        "v": "duploweek 9-16u Stationsstraat 25, Pelt, Limburg",
+        "c": "kamp"
+      },
+      "avond": {
+        "v": "Lieze",
+        "c": "lieze"
+      },
+      "liezewerk": "7,00-15,30",
+      "lieze": "Halen",
+      "pieter": "Brengen",
+      "omaopa": null,
+      "omieopie": null,
+      "opm": null
+    },
+    {
+      "date": "2026-07-25",
+      "day": "Zaterdag",
+      "dd": 25,
+      "mm": 7,
+      "ochtend": {
+        "v": null,
+        "c": "weekend"
+      },
+      "dag": {
+        "v": null,
+        "c": "weekend"
+      },
+      "avond": {
+        "v": null,
+        "c": "weekend"
+      },
+      "liezewerk": null,
+      "lieze": null,
+      "pieter": null,
+      "omaopa": null,
+      "omieopie": null,
+      "opm": null
+    },
+    {
+      "date": "2026-07-26",
+      "day": "Zondag",
+      "dd": 26,
+      "mm": 7,
+      "ochtend": {
+        "v": null,
+        "c": "weekend"
+      },
+      "dag": {
+        "v": null,
+        "c": "weekend"
+      },
+      "avond": {
+        "v": null,
+        "c": "weekend"
+      },
+      "liezewerk": null,
+      "lieze": null,
+      "pieter": null,
+      "omaopa": null,
+      "omieopie": null,
+      "opm": null
+    },
+    {
+      "date": "2026-07-27",
+      "day": "Maandag",
+      "dd": 27,
+      "mm": 7,
+      "ochtend": {
+        "v": "Pieter",
+        "c": "pieter"
+      },
+      "dag": {
+        "v": "Linda",
+        "c": "linda"
+      },
+      "avond": {
+        "v": "Lieze",
+        "c": "lieze"
+      },
+      "liezewerk": "7,30-16,00",
+      "lieze": "Halen",
+      "pieter": "Brengen",
+      "omaopa": "Dagopvang",
+      "omieopie": null,
+      "opm": null
+    },
+    {
+      "date": "2026-07-28",
+      "day": "Dinsdag",
+      "dd": 28,
+      "mm": 7,
+      "ochtend": {
+        "v": "Lieze",
+        "c": "lieze"
+      },
+      "dag": {
+        "v": "Lieze",
+        "c": "lieze"
+      },
+      "avond": {
+        "v": "Lieze",
+        "c": "lieze"
+      },
+      "liezewerk": "vrij",
+      "lieze": "Alles",
+      "pieter": null,
+      "omaopa": null,
+      "omieopie": null,
+      "opm": null
+    },
+    {
+      "date": "2026-07-29",
+      "day": "Woensdag",
+      "dd": 29,
+      "mm": 7,
+      "ochtend": {
+        "v": "Pieter",
+        "c": "pieter"
+      },
+      "dag": {
+        "v": "Linda",
+        "c": "linda"
+      },
+      "avond": {
+        "v": "Lieze",
+        "c": "lieze"
+      },
+      "liezewerk": "7,00-15,30",
+      "lieze": "Halen",
+      "pieter": "Brengen",
+      "omaopa": "Dagopvang",
+      "omieopie": null,
+      "opm": null
+    },
+    {
+      "date": "2026-07-30",
+      "day": "Donderdag",
+      "dd": 30,
+      "mm": 7,
+      "ochtend": {
+        "v": "Pieter",
+        "c": "pieter"
+      },
+      "dag": {
+        "v": "Renilde",
+        "c": "renilde"
+      },
+      "avond": {
+        "v": "Slapen Renilde",
+        "c": "renilde"
+      },
+      "liezewerk": "8,00 - 16,30",
+      "lieze": null,
+      "pieter": "Brengen",
+      "omaopa": "Hele dag en slapen",
+      "omieopie": null,
+      "opm": null
+    },
+    {
+      "date": "2026-07-31",
+      "day": "Vrijdag",
+      "dd": 31,
+      "mm": 7,
+      "ochtend": {
+        "v": "Slapen Renilde",
+        "c": "renilde"
+      },
+      "dag": {
+        "v": "Renilde",
+        "c": "renilde"
+      },
+      "avond": {
+        "v": "Lieze",
+        "c": "lieze"
+      },
+      "liezewerk": "7,30 - 13,30",
+      "lieze": "Halen",
+      "pieter": null,
+      "omaopa": "hele dag",
+      "omieopie": null,
+      "opm": null
+    }
+  ],
+  "camps": [
+    {
+      "date": "2026-07-01",
+      "otto": "Multimove zomersportkamp"
+    },
+    {
+      "date": "2026-07-02",
+      "otto": "Multimove zomersportkamp"
+    },
+    {
+      "date": "2026-07-03",
+      "otto": "Multimove zomersportkamp"
+    }
+  ]
+}
