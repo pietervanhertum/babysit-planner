@@ -13,6 +13,7 @@
   --pieter:#70AD47; --pieter-ink:#23401a;
   --renilde:#E9A8D8; --renilde-ink:#6e2059;
   --linda:#5B9BD5; --linda-ink:#173a5c;
+  --daanfilip:#F2976C; --daanfilip-ink:#6b3417;
   --kamp:#FFC000; --kamp-ink:#5c4500;
   --weekend:#FBF4DC; --weekend-ink:#8a7a4a;
   --letop:#E5484D;
@@ -71,6 +72,7 @@ h1{font-family:Fraunces,serif;font-weight:900;font-size:clamp(38px,8vw,68px);lin
 .who[data-c="pieter"]{background:var(--pieter);color:#fff}
 .who[data-c="renilde"]{background:var(--renilde);color:var(--renilde-ink)}
 .who[data-c="linda"]{background:var(--linda);color:#fff}
+.who[data-c="daanfilip"]{background:var(--daanfilip);color:var(--daanfilip-ink)}
 .who[data-c="kamp"]{background:var(--kamp);color:var(--kamp-ink)}
 .who[data-c="weekend"],.who[data-c="none"]{background:#fff}
 .slot.mine .who{box-shadow:inset 4px 0 0 var(--ink)}
@@ -101,6 +103,7 @@ tbody tr.today .tdate .tw{color:var(--letop);font-weight:700}
 .cell[data-c="pieter"]{background:var(--pieter);color:#fff}
 .cell[data-c="renilde"]{background:var(--renilde);color:var(--renilde-ink)}
 .cell[data-c="linda"]{background:var(--linda);color:#fff}
+.cell[data-c="daanfilip"]{background:var(--daanfilip);color:var(--daanfilip-ink)}
 .cell[data-c="kamp"]{background:var(--kamp);color:var(--kamp-ink)}
 .cell[data-c="weekend"]{color:var(--weekend-ink);font-style:italic;font-weight:500}
 .cell[data-c="none"]{color:var(--muted)}
@@ -153,6 +156,7 @@ const PEOPLE = {
   pieter:  {label:'Pieter',          who:'papa',        var:'--pieter',  initial:'P'},
   renilde: {label:'Renilde & Ronny', who:'omie & opie', var:'--renilde', initial:'R'},
   linda:   {label:'Linda & Dirk',    who:'oma & opa',   var:'--linda',   initial:'L'},
+  daanfilip:{label:'Daan & Filip',   who:'',            var:'--daanfilip',initial:'DF'},
   kamp:    {label:'Kamp / activiteit',who:'',           var:'--kamp',    initial:'K'},
 };
 const WHEN={ochtend:'Ochtend',dag:'Dag',avond:'Avond'};
@@ -167,7 +171,7 @@ let UPCOMING=null;
 
 // task fields that belong to each persona (for "eigen info")
 const TASK_OWNER={lieze:['lieze','liezewerk'],pieter:['pieter'],renilde:['omieopie'],linda:['omaopa']};
-const TASK_LABEL={lieze:'Lieze',pieter:'Pieter',omaopa:'Oma/Opa',omieopie:'Omie/Opie',liezewerk:'Werk Lieze'};
+const TASK_LABEL={lieze:'Lieze',pieter:'Pieter',omaopa:'Oma/Opa',omieopie:'Omie/Opie',liezewerk:'Werk Lieze',daanfilip:'Daan & Filip'};
 
 // person filter
 const fbar=document.getElementById('filterbar');
@@ -188,7 +192,7 @@ function involvedSet(r){const s=new Set();SLOTS.forEach(sl=>{if(r[sl].c in PEOPL
   // also if they have a task that day, they're involved
   if(active in TASK_OWNER){TASK_OWNER[active].forEach(f=>{if(r[f])s.add(active);});}
   return s;}
-function extraText(v,c){if(!v)return null;const names=['Lieze','Pieter','Renilde','Linda','Ronny','Dirk'];return names.includes(v.trim())?null:v;}
+function extraText(v,c){if(!v)return null;const names=['Lieze','Pieter','Renilde','Linda','Ronny','Dirk','Daan & Filip'];return names.includes(v.trim())?null:v;}
 function nameFor(cell){const c=cell.c,v=cell.v;
   if(c in PEOPLE)return{dot:PEOPLE[c].var,name:PEOPLE[c].label,extra:extraText(v,c)};
   if(c==='weekend')return{dot:null,name:v||'Weekend / vrij'};
@@ -216,7 +220,7 @@ const tablewrap=document.getElementById('tablewrap');
 function buildTasks(r){
   const out=[];
   const mineFields = active in TASK_OWNER ? TASK_OWNER[active] : [];
-  [['lieze',r.lieze],['pieter',r.pieter],['omaopa',r.omaopa],['omieopie',r.omieopie],['liezewerk',r.liezewerk]].forEach(([f,v])=>{
+  [['lieze',r.lieze],['pieter',r.pieter],['omaopa',r.omaopa],['omieopie',r.omieopie],['liezewerk',r.liezewerk],['daanfilip',r.daanfilip]].forEach(([f,v])=>{
     if(v)out.push({k:TASK_LABEL[f],v,cls:'',mine:mineFields.includes(f)});
   });
   if(campMap[r.date])out.push({k:'Kamp',v:campMap[r.date],cls:'camp'});
@@ -274,7 +278,7 @@ function renderTable(){
     h+=`<td><div class="cell" data-c="none">${r.liezewerk||'—'}</div></td>`;
     // notes column
     let notes=[];
-    [['lieze',r.lieze],['pieter',r.pieter],['omaopa',r.omaopa],['omieopie',r.omieopie]].forEach(([f,v])=>{if(v)notes.push(`<span class="nt"><b>${TASK_LABEL[f]}:</b> ${v}</span>`);});
+    [['lieze',r.lieze],['pieter',r.pieter],['omaopa',r.omaopa],['omieopie',r.omieopie],['daanfilip',r.daanfilip]].forEach(([f,v])=>{if(v)notes.push(`<span class="nt"><b>${TASK_LABEL[f]}:</b> ${v}</span>`);});
     if(campMap[r.date])notes.push(`<span class="nt"><b>Kamp:</b> ${campMap[r.date]}</span>`);
     if(r.opm)notes.push(`<span class="nt note">⚠ ${r.opm}</span>`);
     h+=`<td class="notes">${notes.join('')||'—'}</td></tr>`;

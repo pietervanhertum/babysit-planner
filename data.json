@@ -22,6 +22,7 @@
       "pieter": "Halen bij Oma om 18u",
       "omaopa": "Halen Bemvoort 16u, naar Akkerstraat",
       "omieopie": null,
+      "daanfilip": null,
       "opm": null
     },
     {
@@ -46,6 +47,7 @@
       "pieter": null,
       "omaopa": null,
       "omieopie": "Brengen van Akkerstraat naar Bemvoort 8u",
+      "daanfilip": null,
       "opm": "Zwemles Otto"
     },
     {
@@ -70,6 +72,7 @@
       "pieter": "Brengen Ochtend",
       "omaopa": null,
       "omieopie": null,
+      "daanfilip": null,
       "opm": null
     },
     {
@@ -94,6 +97,7 @@
       "pieter": "Korea",
       "omaopa": null,
       "omieopie": null,
+      "daanfilip": null,
       "opm": null
     },
     {
@@ -118,6 +122,7 @@
       "pieter": "Korea",
       "omaopa": "Babysit Escaperoom Akkerstraat",
       "omieopie": null,
+      "daanfilip": null,
       "opm": "Escaperoom babysit - L&D (thuis)"
     },
     {
@@ -134,14 +139,15 @@
         "c": "lieze"
       },
       "avond": {
-        "v": "Lieze",
-        "c": "lieze"
+        "v": "Daan & Filip",
+        "c": "daanfilip"
       },
       "liezewerk": "vrij",
-      "lieze": "Alles",
+      "lieze": "Ochtend en dag",
       "pieter": "Korea",
       "omaopa": null,
       "omieopie": null,
+      "daanfilip": "Komen oppassen voor het eten",
       "opm": null
     },
     {
@@ -166,6 +172,7 @@
       "pieter": "Korea",
       "omaopa": null,
       "omieopie": null,
+      "daanfilip": null,
       "opm": null
     },
     {
@@ -190,6 +197,7 @@
       "pieter": "Korea",
       "omaopa": "Hele dag Eksel en blijven slapen",
       "omieopie": null,
+      "daanfilip": null,
       "opm": null
     },
     {
@@ -214,6 +222,7 @@
       "pieter": "Korea",
       "omaopa": "Hele dag Eksel",
       "omieopie": null,
+      "daanfilip": null,
       "opm": null
     },
     {
@@ -238,6 +247,7 @@
       "pieter": "Korea",
       "omaopa": null,
       "omieopie": "Halen in Akkerstraat 8, hele dag Hamont en blijven slapen",
+      "daanfilip": null,
       "opm": null
     },
     {
@@ -262,6 +272,7 @@
       "pieter": "Korea",
       "omaopa": null,
       "omieopie": null,
+      "daanfilip": null,
       "opm": null
     },
     {
@@ -286,6 +297,7 @@
       "pieter": "Korea",
       "omaopa": null,
       "omieopie": null,
+      "daanfilip": null,
       "opm": null
     },
     {
@@ -310,6 +322,7 @@
       "pieter": "Korea",
       "omaopa": null,
       "omieopie": null,
+      "daanfilip": null,
       "opm": null
     },
     {
@@ -334,6 +347,7 @@
       "pieter": "Korea",
       "omaopa": null,
       "omieopie": "Brengen 7u15!!",
+      "daanfilip": null,
       "opm": null
     },
     {
@@ -358,6 +372,7 @@
       "pieter": "Korea",
       "omaopa": "Brengen 7u45 van Akkerstraat naar Berenavontuur",
       "omieopie": null,
+      "daanfilip": null,
       "opm": "Slapen? Renilde"
     },
     {
@@ -382,6 +397,7 @@
       "pieter": "Korea",
       "omaopa": null,
       "omieopie": "Brengen en halen 7u15!!",
+      "daanfilip": null,
       "opm": null
     },
     {
@@ -406,6 +422,7 @@
       "pieter": null,
       "omaopa": null,
       "omieopie": null,
+      "daanfilip": null,
       "opm": null
     },
     {
@@ -430,6 +447,7 @@
       "pieter": null,
       "omaopa": null,
       "omieopie": null,
+      "daanfilip": null,
       "opm": "Trouw Aaron"
     },
     {
@@ -454,6 +472,7 @@
       "pieter": null,
       "omaopa": null,
       "omieopie": null,
+      "daanfilip": null,
       "opm": null
     },
     {
@@ -478,6 +497,7 @@
       "pieter": "Halen",
       "omaopa": null,
       "omieopie": null,
+      "daanfilip": null,
       "opm": null
     },
     {
@@ -502,6 +522,7 @@
       "pieter": null,
       "omaopa": null,
       "omieopie": null,
+      "daanfilip": null,
       "opm": null
     },
     {
@@ -526,6 +547,7 @@
       "pieter": "Halen bij Oma om 18u",
       "omaopa": "Halen Duploweek 16u",
       "omieopie": null,
+      "daanfilip": null,
       "opm": null
     },
     {
@@ -550,6 +572,7 @@
       "pieter": null,
       "omaopa": "Brengen 7u45 van Akkerstraat naar Duploweek",
       "omieopie": null,
+      "daanfilip": null,
       "opm": null
     },
     {
@@ -574,6 +597,7 @@
       "pieter": "Brengen",
       "omaopa": null,
       "omieopie": null,
+      "daanfilip": null,
       "opm": null
     },
     {
@@ -598,6 +622,7 @@
       "pieter": null,
       "omaopa": null,
       "omieopie": null,
+      "daanfilip": null,
       "opm": null
     },
     {
@@ -622,6 +647,7 @@
       "pieter": null,
       "omaopa": null,
       "omieopie": null,
+      "daanfilip": null,
       "opm": null
     },
     {
@@ -646,6 +672,7 @@
       "pieter": "Brengen",
       "omaopa": "Dagopvang",
       "omieopie": null,
+      "daanfilip": null,
       "opm": null
     },
     {
@@ -670,6 +697,7 @@
       "pieter": null,
       "omaopa": null,
       "omieopie": null,
+      "daanfilip": null,
       "opm": null
     },
     {
@@ -694,6 +722,7 @@
       "pieter": "Brengen",
       "omaopa": "Dagopvang",
       "omieopie": null,
+      "daanfilip": null,
       "opm": null
     },
     {
@@ -718,6 +747,7 @@
       "pieter": "Brengen",
       "omaopa": "Hele dag en slapen",
       "omieopie": null,
+      "daanfilip": null,
       "opm": null
     },
     {
@@ -742,6 +772,7 @@
       "pieter": null,
       "omaopa": "hele dag",
       "omieopie": null,
+      "daanfilip": null,
       "opm": null
     }
   ],
